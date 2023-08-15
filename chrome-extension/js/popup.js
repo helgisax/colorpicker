@@ -53,30 +53,24 @@ const displayRecentColors = () => {
   });
 }
 
-//!!
-
-//
 chrome.runtime.onMessage.addListener(color => {
-  const hexCode1 = document.getElementById('hexCode1');
-  const hexCode2 = document.getElementById('hexCode2');
+  const hexCodeUpper = document.getElementById('hexCodeUpper');
+  const hexCodeLower = document.getElementById('hexCodeLower');
   const cssCode = document.getElementById('cssCode');
   const hslCode = document.getElementById('hslCode');
   const selectedColor = document.getElementById('selectedColor');
 
   const { r, g, b } = extractRGB(color);
-  
-
   const hexValue = rgbToHex(color);
-  hexCode1.value = hexValue ? hexValue.slice(0, 4) : ''; 
-  hexCode2.value = hexValue ? hexValue.slice(4) : ''; 
 
+  hexCodeUpper.value = hexValue ? hexValue.toUpperCase() : '';
+  hexCodeLower.value = hexValue ? hexValue.toLowerCase() : '';
   cssCode.value = color;
   hslCode.value = r && g && b ? rgbToHsl(r, g, b) : '';
   selectedColor.style.backgroundColor = color;
 
   storeColor(color);
 });
-
 
 const rgbToHex = (rgb) => {
   const result = /^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/.exec(rgb);
@@ -123,3 +117,4 @@ const clearRecentColors = () => {
 }
 
 document.getElementById('clear').addEventListener('click', clearRecentColors);
+

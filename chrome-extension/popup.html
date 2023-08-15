@@ -3,44 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Picker</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Colour Picker</title>
+    <style>
+        
+    </style>
 </head>
 <body>
-    <header>
-        <img src="img/icon.png" alt="Icon" id="extensionIcon">
-        <h1>Color Picker</h1>
-    </header>
-
-    <div class="color-info">
+    <div class="header">
+        <!-- иконка (если у вас есть) -->
+        <h1>Colour Picker</h1>
+    </div>
+    <div class="selected-color-section">
         <span>Selected Color:</span>
         <div id="selectedColor" class="color-circle"></div>
     </div>
-    
-    <div id="selectedColor" class="color-circle"></div>
-
-    <div>
-        <label for="hexCode1">Hex:</label>
-        <input type="text" id="hexCode1" size="6">
-        <input type="text" id="hexCode2" size="6">
+    <div class="color-values">
+        <div class="hex-css-row">
+            <div class="hex-section">
+                <label>HEX:</label>
+                <output id="hexCodeUpper"></output>
+                <output id="hexCodeLower"></output>
+            </div>
+            <div class="css-section">
+                <label>CSS:</label>
+                <output id="cssCode"></output>
+            </div>
+        </div>
+        <div class="hsl-section">
+            <label>HSL:</label>
+            <output id="hslCode"></output>
+        </div>
     </div>
-    <div>
-        <label for="cssCode">CSS:</label>
-        <input type="text" id="cssCode" size="14">
-    </div>
-    <div>
-        <label for="hslCode">HSL:</label>
-        <input type="text" id="hslCode" size="14">
-    </div>
-
-    <section class="recent-section">
-        <span id="recentColorsLabel">Recent Colors</span>
+    <div class="recent-colors-section">
+        <span>Recent Colors:</span>
         <button id="clear">Clear</button>
-    </section>
-    <div id="recentColors" class="recent-colors-grid">
-        <!-- цвета -->
+        <div id="recentColors">
+            <!-- круги для последних цветов будут здесь -->
+        </div>
     </div>
 
-    <script src="js/popup.js"></script>
+    <script src="popup.js"></script>
 </body>
 </html>
