@@ -3,7 +3,7 @@
   "name": "Color Picker Extension",
   "version": "1.0",
   "description": "A simple color picker for web elements.",
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "storage"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
