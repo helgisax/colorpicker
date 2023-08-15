@@ -22,7 +22,7 @@ const storeColor = (color) => {
 
   let colors = JSON.parse(localStorage.getItem('recentColors') || '[]');
   colors.unshift(color);
-  if (colors.length > 5) {
+  if (colors.length > 11) {
       colors.pop();
   }
   localStorage.setItem('recentColors', JSON.stringify(colors));
@@ -40,29 +40,36 @@ const storeColor = (color) => {
 
 const displayRecentColors = () => {
   const recentColorsSection = document.getElementById('recentColors');
-  chrome.storage.local.get(['recentColors'], (result) => {
-      const colors = result.recentColors || [];
-      recentColorsSection.innerHTML = '';
+  const colors = JSON.parse(localStorage.getItem('recentColors') || '[]');
 
-      colors.forEach((color) => {
-          const colorDiv = document.createElement('div');
-          colorDiv.className = 'color-circle';
-          colorDiv.style.backgroundColor = color;
-          colorDiv.title = color;
-          recentColorsSection.appendChild(colorDiv);
-      });
+  recentColorsSection.innerHTML = '';
+
+  colors.forEach((color) => {
+      const colorDiv = document.createElement('div');
+      colorDiv.className = 'color-circle';
+      colorDiv.style.backgroundColor = color;
+      colorDiv.title = color;
+      recentColorsSection.appendChild(colorDiv);
   });
 }
 
+//!!
+
+//
 chrome.runtime.onMessage.addListener(color => {
-  const hexCode = document.getElementById('hexCode');
+  const hexCode1 = document.getElementById('hexCode1');
+  const hexCode2 = document.getElementById('hexCode2');
   const cssCode = document.getElementById('cssCode');
   const hslCode = document.getElementById('hslCode');
   const selectedColor = document.getElementById('selectedColor');
 
   const { r, g, b } = extractRGB(color);
   
-  hexCode.value = rgbToHex(color);
+
+  const hexValue = rgbToHex(color);
+  hexCode1.value = hexValue ? hexValue.slice(0, 4) : ''; 
+  hexCode2.value = hexValue ? hexValue.slice(4) : ''; 
+
   cssCode.value = color;
   hslCode.value = r && g && b ? rgbToHsl(r, g, b) : '';
   selectedColor.style.backgroundColor = color;
@@ -116,5 +123,3 @@ const clearRecentColors = () => {
 }
 
 document.getElementById('clear').addEventListener('click', clearRecentColors);
-
-

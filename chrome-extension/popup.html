@@ -11,20 +11,35 @@
         <img src="img/icon.png" alt="Icon" id="extensionIcon">
         <h1>Color Picker</h1>
     </header>
+
+    <div class="color-info">
+        <span>Selected Color:</span>
+        <div id="selectedColor" class="color-circle"></div>
+    </div>
     
     <div id="selectedColor" class="color-circle"></div>
 
-    <div class="color-codes">
-        <label>HEX: <input type="text" id="hexCode" readonly></label>
-        <label>CSS: <input type="text" id="cssCode" readonly></label>
-        <label>HSL: <input type="text" id="hslCode" readonly></label>
+    <div>
+        <label for="hexCode1">Hex:</label>
+        <input type="text" id="hexCode1" size="6">
+        <input type="text" id="hexCode2" size="6">
     </div>
-    
-    <section id="recentColors">
-        <!-- тут цвета -->
-    </section>
+    <div>
+        <label for="cssCode">CSS:</label>
+        <input type="text" id="cssCode" size="14">
+    </div>
+    <div>
+        <label for="hslCode">HSL:</label>
+        <input type="text" id="hslCode" size="14">
+    </div>
 
-    <button id="clear">Clear</button>
+    <section class="recent-section">
+        <span id="recentColorsLabel">Recent Colors</span>
+        <button id="clear">Clear</button>
+    </section>
+    <div id="recentColors" class="recent-colors-grid">
+        <!-- цвета -->
+    </div>
 
     <script src="js/popup.js"></script>
 </body>

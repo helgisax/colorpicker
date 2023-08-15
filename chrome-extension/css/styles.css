@@ -31,3 +31,34 @@ header img {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+.color-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
+.color-codes label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.color-codes input[type="text"] {
+  margin-right: 10px;
+}
+
+.recent-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recent-colors-grid {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr); 
+  gap: 10px;
+  padding-top: 10px;
+}
