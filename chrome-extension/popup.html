@@ -6,23 +6,37 @@
     <title>Color Picker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Color Picker Extension</title>
+</head>
 <body>
     <header>
-        <img src="icons/icon48.png" alt="Extension Icon">
+        <img src="images/icon.png" alt="Extension Icon">
         <h1>Color Picker</h1>
     </header>
-    <main>
-        <div id="selected-color"></div>
-        <div class="color-info">
-            <label>HEX: <input type="text" id="hex-color"></label>
-            <label>CSS: <input type="text" id="css-color"></label>
-            <label>HSL: <input type="text" id="hsl-color"></label>
+    
+    <section>
+        <div id="selectedColor" class="color-circle"></div>
+        <div id="colorCodes">
+            <label>HEX:</label>
+            <input type="text" id="hexCode" readonly>
+            <label>CSS:</label>
+            <input type="text" id="cssCode" readonly>
+            <label>HSL:</label>
+            <input type="text" id="hslCode" readonly>
         </div>
-        <div id="recent-colors"></div>
-    </main>
-    <footer>
-        <button id="clear">Clear</button>
-    </footer>
-    <script src="popup.js"></script>
+        <button id="clearButton">Clear</button>
+    </section>
+
+    <section id="recentColors">
+        <!-- тут цвета -->
+    </section>
+
+    <script src="js/popup.js"></script>
 </body>
 </html>
