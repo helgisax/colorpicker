@@ -1,9 +1,3 @@
-document.body.addEventListener('click', (e) => {
-  const color = window.getComputedStyle(e.target).backgroundColor;
-  chrome.runtime.sendMessage(color);
-  document.body.style.cursor = '';
-}, { once: true });
-
 const colorPreview = document.createElement('div');
 colorPreview.style.position = 'absolute';
 colorPreview.style.borderRadius = '50%';
@@ -22,6 +16,8 @@ document.body.addEventListener('mousemove', (e) => {
   colorPreview.style.display = 'block';
 });
 
-document.body.addEventListener('click', () => {
+document.body.addEventListener('click', (e) => {
+  const color = window.getComputedStyle(e.target).backgroundColor;
+  chrome.runtime.sendMessage(color);
   colorPreview.style.display = 'none';
 });

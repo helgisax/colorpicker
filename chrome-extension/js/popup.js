@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   chrome.tabs.executeScript({
-      code: 'document.body.style.cursor="crosshair";'
-  });
-
+    code: 'window.showColorPicker = true;'
+});
   chrome.tabs.executeScript({
-      code: `(${fetchColorFromPage.toString()})();`
+      file: 'contentScript.js'
   });
   
   displayRecentColors();
@@ -19,7 +18,7 @@ const fetchColorFromPage = () => {
 }
 
 const storeColor = (color) => {
-
+  
   let colors = JSON.parse(localStorage.getItem('recentColors') || '[]');
   colors.unshift(color);
   if (colors.length > 11) {
@@ -83,7 +82,7 @@ const rgbToHsl = (r, g, b) => {
   let h, s, l = (max + min) / 2;
 
   if (max == min) {
-      h = s = 0; // achromatic
+      h = s = 0; 
   } else {
       const delta = max - min;
       s = l > 0.5 ? delta / (2 - max - min) : delta / (max + min);
@@ -117,4 +116,5 @@ const clearRecentColors = () => {
 }
 
 document.getElementById('clear').addEventListener('click', clearRecentColors);
+
 
