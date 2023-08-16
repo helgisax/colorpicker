@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colour Picker</title>
-    <style>
-        
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
-    <div class="header">
-        <!-- что можно вставить вместо иконки? -->
+    <div class="header" role="banner">
+        <img src="https://freesvg.org/img/1690864905MartialArts2.png" alt="icon">
         <h1>Colour Picker</h1>
     </div>
     <div class="selected-color-section">
@@ -21,25 +19,23 @@
         <div class="hex-css-row">
             <div class="hex-section">
                 <label>HEX:</label>
-                <output id="hexCodeUpper"></output>
-                <output id="hexCodeLower"></output>
+                <span id="hexCodeUpper"></span>
+                <span id="hexCodeLower"></span>
             </div>
             <div class="css-section">
                 <label>CSS:</label>
-                <output id="cssCode"></output>
+                <span id="cssCode"></span>
             </div>
         </div>
         <div class="hsl-section">
             <label>HSL:</label>
-            <output id="hslCode"></output>
+            <span id="hslCode"></span>
         </div>
     </div>
     <div class="recent-colors-section">
         <span>Recent Colors:</span>
         <button id="clear">Clear</button>
-        <div id="recentColors">
-            <!-- какой код должен быть здесь? -->
-        </div>
+        <div id="recentColors"></div>
     </div>
 
     <script src="popup.js"></script>
